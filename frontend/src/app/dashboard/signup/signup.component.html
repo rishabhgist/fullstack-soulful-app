@@ -1,26 +1,27 @@
 <mat-card>
     <mat-card-title>Sign Up</mat-card-title>
     <mat-card-content>
-            <form action="">
+            <form [formGroup]="customer" >
                 <mat-form-field>
                     <mat-label>Name</mat-label>
-                    <input type="text" required matInput>
+                    <input type="text" required matInput formControlNam="customerName">
+                    
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Contact</mat-label>
-                    <input type="number" required matInput>
+                    <input type="number" required matInput formControlName="customerPhone" >
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input type="text" required matInput>
+                    <input type="text" required matInput formControlName="email">
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Password</mat-label>
-                    <input type="text" required matInput>
+                    <input type="text" required matInput formControlName="password">
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Confirm Password</mat-label>
-                    <input type="text" required matInput>
+                    <input type="text" required matInput formControlName="cnf">
                 </mat-form-field>
                 <button type="submit" mat-raised-button color="primary">Sign Up</button>
             </form>
