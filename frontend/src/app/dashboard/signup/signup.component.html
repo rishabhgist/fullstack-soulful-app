@@ -32,7 +32,7 @@
                     <mat-error class="error" *ngIf="customer.controls['cnfPassword'].hasError('required')">Confirm Password is required</mat-error>
                     <mat-error class="error" *ngIf="customer.get('cnfPassword')?.hasError('noMatch')">Password & Confirm Password should match</mat-error>  
                 </mat-form-field>
-                <button type="submit" mat-raised-button color="primary">Sign Up</button>
+                <button type="submit" mat-raised-button color="primary" [disabled]="customer.invalid">Sign Up</button>
             </form>
     </mat-card-content>
 </mat-card>
