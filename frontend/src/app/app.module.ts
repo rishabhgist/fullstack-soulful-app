@@ -16,12 +16,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { LoginComponent } from './dashboard/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
