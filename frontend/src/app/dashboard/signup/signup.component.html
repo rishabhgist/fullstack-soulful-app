@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-title>Sign Up</mat-card-title>
     <mat-card-content>
-            <form [formGroup]="customer" >
+            <form [formGroup]="customer" (submit)="saveCustomer(customer)">
                 <mat-form-field>
                     <mat-label>Name</mat-label>
                     <input type="text" required matInput formControlName="customerName">

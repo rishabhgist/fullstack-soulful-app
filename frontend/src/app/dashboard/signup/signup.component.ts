@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, ValidationErrors, ValidatorFn, Validators, AbstractControl } from '@angular/forms';
-
+import { FormBuilder, ValidationErrors, ValidatorFn, Validators, AbstractControl, FormGroup } from '@angular/forms';
+import { Customer } from 'src/app/model/customer.model';
+import { SignupService } from 'src/app/service/signup.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -8,7 +10,7 @@ import { FormBuilder, ValidationErrors, ValidatorFn, Validators, AbstractControl
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private signupService: SignupService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -30,9 +32,25 @@ export class SignupComponent implements OnInit {
           ),
         ])],
     cnfPassword:['', Validators.required]
-  },  { validator: verifypwd('password', 'cnfPassword') })
-
+  }, { validator: verifypwd('password', 'cnfPassword') })
+  
+  saveCustomer(data: FormGroup){
+    let customerData: Customer = {
+      customerName: data.get('customerName')?.value,
+      customerPhone: data.get('customerPhone')?.value,
+      email: data.get('email')?.value,
+      password: data.get('password')?.value,
+    }
+    this.signupService.post(customerData).subscribe(() => {
+      this._snackBar.open('Congrats, you have submitted the form!!', 'success', {
+      duration: 5000,
+      panelClass: ['mat-toolbar', 'mat-primary'],
+    });
+    })
+  }
 }
+
+
 // Verfiy confirm Password
 export function verifypwd(pass: string, cnfPass: string): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
