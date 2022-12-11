@@ -4,24 +4,33 @@
             <form [formGroup]="customer" >
                 <mat-form-field>
                     <mat-label>Name</mat-label>
-                    <input type="text" required matInput formControlNam="customerName">
-                    
+                    <input type="text" required matInput formControlName="customerName">
+                    <mat-error class="error" *ngIf="customer.controls['customerName'].hasError('required')">Name is required</mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Contact</mat-label>
                     <input type="number" required matInput formControlName="customerPhone" >
+                    <mat-error class="error" *ngIf="customer.controls['customerPhone'].hasError('required')">Contact is required</mat-error>
+                    <mat-error class="error" *ngIf="customer.controls['customerPhone'].hasError('pattern')">Valid contact number contains 10 digit starting with 7/8/9</mat-error>    
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Email</mat-label>
                     <input type="text" required matInput formControlName="email">
+                    <mat-error class="error" *ngIf="customer.controls['email'].hasError('required')">Email is required</mat-error>
+                    <mat-error class="error" *ngIf="customer.controls['email'].hasError('pattern')"> Enter a valid email address</mat-error>    
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Password</mat-label>
-                    <input type="text" required matInput formControlName="password">
+                    <input type="password" required matInput formControlName="password">
+                    <mat-error class="error" *ngIf="customer.controls['password'].hasError('required')">Password is required</mat-error>
+                    <mat-error class="error" *ngIf="customer.controls['password'].hasError('pattern')">Password should have min 8 letter password, with at least a symbol,
+          upper and lower case letters and a number</mat-error>    
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Confirm Password</mat-label>
-                    <input type="text" required matInput formControlName="cnf">
+                    <input type="password" required matInput formControlName="cnfPassword">
+                    <mat-error class="error" *ngIf="customer.controls['cnfPassword'].hasError('required')">Confirm Password is required</mat-error>
+                    <mat-error class="error" *ngIf="customer.get('cnfPassword')?.hasError('noMatch')">Password & Confirm Password should match</mat-error>  
                 </mat-form-field>
                 <button type="submit" mat-raised-button color="primary">Sign Up</button>
             </form>
