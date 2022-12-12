@@ -4,7 +4,7 @@
             <form [formGroup]="user">
                 <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input type="text" required matInput formControlName="email">
+                    <input type="email" required matInput formControlName="email">
                     <mat-error class="error" *ngIf="user.controls['email'].hasError('required')">Email is required</mat-error>
                     <mat-error class="error" *ngIf="user.controls['email'].hasError('pattern')"> Enter a valid email address</mat-error>    
                 </mat-form-field>
