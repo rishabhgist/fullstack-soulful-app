@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
 import { Profile } from '../model/profile.model';
+import { AuthService } from '../service/auth.service';
 import { DataService } from '../service/data.service';
 
 @Component({
@@ -10,10 +11,11 @@ import { DataService } from '../service/data.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private dataService:DataService) { }
+  constructor(private dataService:DataService, private authSerive: AuthService) { }
 
   ngOnInit(): void {
     this.getLikes();
+    this.userLoggedIn = this.authSerive.isLogged;
   }
 
   toggleMenu() {
@@ -27,6 +29,7 @@ export class HeaderComponent implements OnInit {
 
   likes: Profile[] = []
   
+  userLoggedIn: boolean = false;
   
   getLikes() {
     setInterval(() => {
