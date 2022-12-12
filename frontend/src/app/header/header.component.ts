@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
 import { Profile } from '../model/profile.model';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,10 @@ import { Profile } from '../model/profile.model';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
+    this.getLikes();
   }
 
   toggleMenu() {
@@ -25,5 +27,11 @@ export class HeaderComponent implements OnInit {
 
   likes: Profile[] = []
   
+  
+  getLikes() {
+    setInterval(() => {
+      this.likes = this.dataService.likes;
+    }, 500)
+  }
   
 }

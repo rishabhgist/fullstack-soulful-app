@@ -23,7 +23,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './home/home.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
-import { DataDirective } from './service/data.directive';
 
 
 @NgModule({
@@ -34,7 +33,6 @@ import { DataDirective } from './service/data.directive';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    DataDirective
   ],
   imports: [
     BrowserModule,

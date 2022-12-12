@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Profile } from '../model/profile.model';
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +7,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   constructor() { }
+
+  likes: Profile[] = [];
+  
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
 import { Profile } from '../model/profile.model';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { Profile } from '../model/profile.model';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private header:HeaderComponent) { }
+  constructor(private dataService:DataService) { }
 
   
 
@@ -100,7 +100,8 @@ export class HomeComponent implements OnInit {
   }
 
   liked(user: string | undefined) {
-    
+    let data:Profile [] = this.profiles.filter(obj => obj.profile === user);
+    this.dataService.likes.push(data[0]);
   }
 }
 
