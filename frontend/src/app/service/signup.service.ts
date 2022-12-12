@@ -10,6 +10,6 @@ export class SignupService {
   constructor(private http:HttpClient) { }
 
   post(customer: Customer) {
-    return this.http.post('http://localhost:9000/api/v2/saveItem', customer);
+    return this.http.post('http://localhost:8082/api/v2/saveItem', customer);
   }
 }

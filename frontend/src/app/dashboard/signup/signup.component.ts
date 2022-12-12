@@ -3,6 +3,8 @@ import { FormBuilder, ValidationErrors, ValidatorFn, Validators, AbstractControl
 import { Customer } from 'src/app/model/customer.model';
 import { SignupService } from 'src/app/service/signup.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { KeyValuePipe } from '@angular/common';
+import { __values } from 'tslib';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -44,8 +46,7 @@ export class SignupComponent implements OnInit {
     this.signupService.post(customerData).subscribe(() => {
       this._snackBar.open('Congrats, you have submitted the form!!', 'success', {
       duration: 5000,
-      panelClass: ['mat-toolbar', 'mat-primary'],
-    });
+      panelClass: ['mat-toolbar', 'mat-primary'],});
     })
   }
 }
