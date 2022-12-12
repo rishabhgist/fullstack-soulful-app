@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Profile } from '../model/profile.model';
 
 @Component({
   selector: 'app-home',
@@ -98,10 +99,3 @@ export class HomeComponent implements OnInit {
   }
 }
 
-export type Profile = {
-  id?:number,
-  name?: string,
-  city?: string, 
-  age?: string,
-  profile?: string
-}
