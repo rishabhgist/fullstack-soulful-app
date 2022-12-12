@@ -91,6 +91,7 @@ export class HomeComponent implements OnInit {
     if (name) {
       const main = document.getElementById( name + '-card');
       main?.style.setProperty('transform', 'translateX(-1500px)');
+      main?.style.setProperty('opacity', '0');
       setTimeout(() => {
         main?.style.setProperty('display', 'none');
         this.profiles = this.profiles.filter(obj => obj.profile !== name);
