@@ -1,16 +1,19 @@
-<mat-card>
+ad<mat-card>
     <mat-card-title>Login</mat-card-title>
     <mat-card-content>
-            <form action="">
+            <form [formGroup]="user">
                 <mat-form-field>
-                    <mat-label>Username</mat-label>
-                    <input type="text" required matInput>
+                    <mat-label>Email</mat-label>
+                    <input type="text" required matInput formControlName="email">
+                    <mat-error class="error" *ngIf="user.controls['email'].hasError('required')">Email is required</mat-error>
+                    <mat-error class="error" *ngIf="user.controls['email'].hasError('pattern')"> Enter a valid email address</mat-error>    
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Password</mat-label>
-                    <input type="password" required matInput>
+                    <input type="password" required matInput formControlName="password" >
+                     <mat-error class="error" *ngIf="user.controls['password'].hasError('required')">Password is required</mat-error>
                 </mat-form-field>
-                <button type="submit" mat-raised-button color="primary">Login</button>
+                <button type="submit" mat-raised-button color="primary" [disabled]="user.invalid">Login</button>
             </form>
     </mat-card-content>
 </mat-card>
