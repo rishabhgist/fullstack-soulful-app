@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     },
     {
       id: 2,
-      name: "Dimple Goyal",
+      name: "Aditi Chaurisia",
       city: "Mumbai, Maharashtra",
       age: "24",
       profile: "dimple"
@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit {
         main?.style.setProperty('display', 'none');
         this.profiles = this.profiles.filter(obj => obj.profile !== name);
         console.log(this.profiles);
-      }, 800);
+      }, 600);
     }
   }
 }
