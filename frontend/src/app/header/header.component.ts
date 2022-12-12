@@ -12,4 +12,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleMenu() {
+    const menu = document.getElementById('dropdown');
+    if (menu?.style.display === 'none') {
+      menu.style.setProperty('display', 'flex')
+    } else {
+       menu?.style.setProperty('display', 'none')
+    }
+  }
 }

@@ -14,3 +14,38 @@ mat-toolbar {
     color: #81C6C1;
     margin: 0 15px;
 }
+.user-warn{
+    color: #81C6C1;
+}
+.user-controls button{
+    margin: 0 10px;
+}
+#dropdown{
+    position: absolute;
+    flex-direction: column;
+    background-color: #ffff;
+    padding: 10px 0;
+    width: 150px;
+    height: 0vh;
+    text-align: center;
+    top: 65px;
+    right: 15px;
+    transition: .2s;
+}
+#dropdown div{
+    border-bottom: 1px solid #d4d4d4;
+    padding: 5px 0;
+}
+#dropdown a{
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+#dropdown span{
+    font-size: 15px;
+    position: relative;
+    top: -6px;
+    margin-left: 5px;
+}
