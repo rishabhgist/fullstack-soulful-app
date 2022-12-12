@@ -13,6 +13,7 @@ mat-card{
     text-align: center;
     margin: auto;
     margin: 0 -30px;
+    transition: .2s;
 }
 mat-card-title{
     margin: 15px 0;

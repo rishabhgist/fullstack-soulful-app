@@ -17,30 +17,35 @@ export class HomeComponent implements OnInit {
 
   profiles: Profile[] = [
     {
+      id: 1,
       name: "Sneha Shinde",
       city: "Pune, Maharashtra",
       age: "23",
-      profile:"sneha" 
+      profile: "sneha"
     },
     {
+      id: 2,
       name: "Dimple Goyal",
       city: "Mumbai, Maharashtra",
       age: "24",
       profile: "dimple"
     },
     {
+      id: 3,
       name: "Akansha Yadav",
       city: "Delhi",
       age: "20",
       profile: "akansha"
     },
     {
+      id: 4,
       name: "Deepika Bhardwaj",
       city: "Dehradun, Uttrakhand",
       age: "25",
       profile: "deepika"
     },
     {
+      id: 5,
       name: "Meera Bai",
       city: "Bengluru, Karanataka",
       age: "23",
@@ -51,17 +56,17 @@ export class HomeComponent implements OnInit {
   key: number = 0;
 
   next() {
-    if (this.profiles.length-1 > this.key) {
+    if (this.profiles.length - 1 > this.key) {
       if (this.profiles != undefined) {
-        this.key ++;
+        this.key++;
         this.profile = this.profiles.at(this.key);
       }
-    }else {
-        this.key = 0;
+    } else {
+      this.key = 0;
     }
   }
 
-  up(name: string | undefined ) {
+  up(name: string | undefined) {
     if (name) {
       const card = document.getElementById(name);
       const main = document.getElementById(name + '-card');
@@ -71,7 +76,7 @@ export class HomeComponent implements OnInit {
       
     }
   }
-  down(name: string | undefined ) {
+  down(name: string | undefined) {
     if (name) {
       const card = document.getElementById(name);
       const main = document.getElementById(name + '-card');
@@ -79,10 +84,21 @@ export class HomeComponent implements OnInit {
       main?.style.setProperty('transform', 'scale(1)');
       main?.style.setProperty('z-index', '0');
     }
-   }
+  }
+  remove(id: number | undefined) {
+    if (id) {
+      const main = document.getElementById(this.profiles.at(id)?.profile + '-card');
+      main?.style.setProperty('transform', 'translateX(-1500px)');
+      setTimeout(() => {
+        main?.style.setProperty('display', 'none');
+        this.profiles = this.profiles.filter(obj => obj.id !== id);
+      }, 1500);
+    }
+  }
 }
 
 export type Profile = {
+  id?:number,
   name?: string,
   city?: string, 
   age?: string,
