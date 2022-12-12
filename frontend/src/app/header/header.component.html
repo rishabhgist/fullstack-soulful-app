@@ -4,7 +4,7 @@
    <div class="nav">
     <div class="user-controls">
         <button mat-icon-button>
-        <mat-icon class="icon user-warn">favorite</mat-icon>
+        <mat-icon matBadge="{{likes.length}}" matBadgeColor="warn" class="icon user-warn">favorite</mat-icon>
         </button>
         <button mat-icon-button>
             <mat-icon matBadge="15" matBadgeColor="warn" class="user-warn">message</mat-icon>

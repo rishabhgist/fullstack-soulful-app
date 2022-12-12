@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 import { Profile } from '../model/profile.model';
 
 @Component({
@@ -8,7 +9,7 @@ import { Profile } from '../model/profile.model';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private header:HeaderComponent) { }
 
   
 
@@ -96,6 +97,10 @@ export class HomeComponent implements OnInit {
         console.log(this.profiles);
       }, 600);
     }
+  }
+
+  liked(user: string | undefined) {
+    
   }
 }
 

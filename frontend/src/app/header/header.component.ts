@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeComponent } from '../home/home.component';
+import { Profile } from '../model/profile.model';
 
 @Component({
   selector: 'app-header',
@@ -20,4 +22,8 @@ export class HeaderComponent implements OnInit {
        menu?.style.setProperty('display', 'none')
     }
   }
+
+  likes: Profile[] = []
+  
+  
 }
