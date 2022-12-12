@@ -41,3 +41,6 @@ button{
     display: flex;
     justify-content: center;
 }
+.profile-age{
+    margin-bottom: 10px;
+}

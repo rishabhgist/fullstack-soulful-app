@@ -85,14 +85,15 @@ export class HomeComponent implements OnInit {
       main?.style.setProperty('z-index', '0');
     }
   }
-  remove(id: number | undefined) {
-    if (id) {
-      const main = document.getElementById(this.profiles.at(id)?.profile + '-card');
+  remove(name: string | undefined) {
+    if (name) {
+      const main = document.getElementById( name + '-card');
       main?.style.setProperty('transform', 'translateX(-1500px)');
       setTimeout(() => {
         main?.style.setProperty('display', 'none');
-        this.profiles = this.profiles.filter(obj => obj.id !== id);
-      }, 1500);
+        this.profiles = this.profiles.filter(obj => obj.profile !== name);
+        console.log(this.profiles);
+      }, 800);
     }
   }
 }
