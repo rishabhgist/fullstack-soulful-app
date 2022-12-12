@@ -17,3 +17,9 @@ button{
     margin-top: 20px;
     width: 150px;
 }
+mat-card-footer{
+    padding: 20px;
+}
+mat-card-footer a{
+    text-decoration: none;
+}
