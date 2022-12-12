@@ -1,0 +1,8 @@
+.brand{
+    width: 180px;
+    margin-top: 10px;
+}
+mat-toolbar {
+    border-bottom: 1px solid #d4d4d4;
+    box-shadow: 0px 0 5px 5px rgba(0, 0, 0, 0.2);
+}
