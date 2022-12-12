@@ -1,18 +1,22 @@
 <div class="container">
-    We found perfect profile for you
-
-    <mat-card >
-        <mat-card-title>{{profile?.name}}</mat-card-title>
-        <mat-card-content>
-            <div class="profile">
-                <div class="profile-age">{{profile?.age}}</div>
-                <div class="profile-location">{{profile?.city}}</div>
-                <div class="profile-image"><img src="../../assets/images/{{profile?.profile}}.jpg" alt="Sneha"></div>
-            </div >
-            <div class="event">
-                <button mat-raised-button color="warn" (click)="next()">Not Intrested</button>
-                <button mat-raised-button color="success" (click)="next()">Intrested</button>
-            </div>
-        </mat-card-content>
-    </mat-card>
+    <div class="main">We've found perfect match for you !</div>
+   <div class="profile-container">
+         <mat-card *ngFor="let profile of profiles" id="{{profile?.profile}}-card">
+            <a href="" (mouseenter)="up(profile?.profile)" (mouseleave)="down(profile?.profile)" id="{{profile?.profile}}">
+            <mat-card-title>{{profile?.name}}</mat-card-title>
+            <mat-card-content>
+                <div class="profile">
+                    <div class="profile-age">{{profile?.age}}</div>
+                    <div class="profile-location">{{profile?.city}}</div>
+                    <div class="profile-image"><img src="../../assets/images/{{profile?.profile}}.jpg" alt="Sneha"></div>
+                </div >
+                <div class="event">
+                    <button mat-raised-button color="warn" (click)="next()">Not Intrested</button>
+                    <button mat-raised-button color="success" (click)="next()">Intrested</button>
+                </div>
+            </mat-card-content>
+            </a>
+        </mat-card>
+   </div>
+    
 </div>

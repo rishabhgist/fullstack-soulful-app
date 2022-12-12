@@ -9,6 +9,8 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  
+
   ngOnInit(): void {
     this.profile = this.profiles.at(this.key);
   }
@@ -30,7 +32,7 @@ export class HomeComponent implements OnInit {
       name: "Akansha Yadav",
       city: "Delhi",
       age: "20",
-      profile: "sneha"
+      profile: "akansha"
     },
     {
       name: "Deepika Bhardwaj",
@@ -53,18 +55,36 @@ export class HomeComponent implements OnInit {
       if (this.profiles != undefined) {
         this.key ++;
         this.profile = this.profiles.at(this.key);
-        console.log(this.profiles.length + '' + this.key);
-
       }
     }else {
         this.key = 0;
     }
   }
+
+  up(name: string | undefined ) {
+    if (name) {
+      const card = document.getElementById(name);
+      const main = document.getElementById(name + '-card');
+      main?.style.setProperty('z-index', '1');
+      card?.style.setProperty('opacity', '1');
+      main?.style.setProperty('transform', 'scale(1.1)');
+      
+    }
+  }
+  down(name: string | undefined ) {
+    if (name) {
+      const card = document.getElementById(name);
+      const main = document.getElementById(name + '-card');
+      card?.style.setProperty('opacity', '0.6');
+      main?.style.setProperty('transform', 'scale(1)');
+      main?.style.setProperty('z-index', '0');
+    }
+   }
 }
 
 export type Profile = {
-  name?: String,
-  city?: String, 
-  age?: String,
-  profile?: String
+  name?: string,
+  city?: string, 
+  age?: string,
+  profile?: string
 }

@@ -1,22 +1,42 @@
 .container{
     padding: 20px;
 }
-
+.main{
+    font-size: 1.6rem;
+    color: #81C6C1;
+    text-align: center;
+    margin: 20px auto;
+}
 mat-card{
     width: 350px;
     box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.3) !important; 
     text-align: center;
     margin: auto;
+    margin: 0 -30px;
 }
 mat-card-title{
     margin: 15px 0;
 }
-
 .profile-image img{
     width: 200px;
     height: 200px;
     border-radius: 100%;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
 }
 button{
     margin: 10px 20px;
+}
+.profile-container a{
+    text-decoration: none;
+    opacity: 0.6;
+    color: rgb(34, 34, 34);
+    transition: .2s;
+    overflow: hidden;
+}
+.profile-container{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
 }

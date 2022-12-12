@@ -6,3 +6,11 @@ mat-toolbar {
     border-bottom: 1px solid #d4d4d4;
     box-shadow: 0px 0 5px 5px rgba(0, 0, 0, 0.2);
 }
+.spacer{
+    flex: 1 1 auto;
+}
+.nav a{
+    text-decoration: none;
+    color: #81C6C1;
+    margin: 0 15px;
+}
