@@ -2,7 +2,7 @@
     <a href="/"><img src="../../assets/images/logo.png" alt="soulful" class="brand"></a>
     <div class="spacer"></div>
    <div class="nav">
-    <div class="user-controls" *ngIf="userLoggedIn">
+    <div class="user-controls" *ngIf="isUserLoggedIn()">
         <button mat-icon-button>
         <mat-icon matBadge="{{likes.length}}" matBadgeColor="warn" class="icon user-warn">favorite</mat-icon>
         </button>
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-     <div class="main-controls" *ngIf="!userLoggedIn">
+     <div class="main-controls" *ngIf="! isUserLoggedIn()">
         <a href="/login">LOGIN</a>
         <a href="/signup">SIGNUP</a>
      </div>

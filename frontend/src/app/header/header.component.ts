@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLikes();
-    this.userLoggedIn = this.authSerive.isLogged;
   }
 
   toggleMenu() {
@@ -29,12 +28,13 @@ export class HeaderComponent implements OnInit {
 
   likes: Profile[] = []
   
-  userLoggedIn: boolean = false;
+  public isUserLoggedIn() {
+    return this.authSerive.isLoggedIn()
+  }
   
   getLikes() {
     setInterval(() => {
       this.likes = this.dataService.likes;
     }, 500)
   }
-  
 }

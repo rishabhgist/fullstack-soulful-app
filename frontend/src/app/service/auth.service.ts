@@ -33,7 +33,6 @@ export class AuthService {
       (response:any) => {
         this.setToken(response.token);
         this.router.navigate(['/home']);
-        this.isLogged = true; 
       },
       (error:any) => {
         alert(error.error.message);
