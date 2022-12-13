@@ -9,10 +9,9 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Age</mat-label>
-                    <input type="number" required matInput formControlName="age" >
+                    <input type="text" required matInput formControlName="age" pattern="\d*" maxlength="2">
                     <mat-error class="error" *ngIf="customer.controls['age'].hasError('required')">Age is required</mat-error>
                     <mat-error class="error" *ngIf="customer.controls['age'].hasError('verifyAge')">Age must be 18 years and above</mat-error>
-
                 </mat-form-field>
                 <mat-radio-group aria-label="Select an option" formControlName="gender">
                     <span>Gender: </span>
