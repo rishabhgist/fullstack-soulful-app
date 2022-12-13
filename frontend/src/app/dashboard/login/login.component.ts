@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { User } from 'src/app/model/user.model';
 import { AuthService } from 'src/app/service/auth.service';
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
       email: user.get('email')?.value,
       password: user.get('password')?.value
     }
-    this.authService.validateUser(data);
+      this.authService.validateUser(data)
   }
   
 }
