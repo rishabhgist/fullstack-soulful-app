@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLikes();
-    this.userLoggedIn = this.authSerive.isLogged;
+    this.userLoggedIn = true;
   }
 
   toggleMenu() {
