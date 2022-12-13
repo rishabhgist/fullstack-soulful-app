@@ -12,7 +12,7 @@ import { SignupComponent } from './dashboard/signup/signup.component';
 
 //Core Imports
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Material Imports 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -24,6 +24,9 @@ import { HomeComponent } from './home/home.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import { AuthGuard } from './gaurd/auth.guard';
+import { AuthInterceptor } from './gaurd/auth.interceptor';
+import { LoginService } from './service/login.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,15 @@ import {MatRadioModule} from '@angular/material/radio';
     MatIconModule,
     MatRadioModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard, 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
