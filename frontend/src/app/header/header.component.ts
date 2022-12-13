@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { Profile } from '../model/profile.model';
 import { AuthService } from '../service/auth.service';
@@ -11,7 +12,7 @@ import { DataService } from '../service/data.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private dataService:DataService, private authSerive: AuthService) { }
+  constructor(private dataService:DataService, private authSerive: AuthService, private router:Router) { }
 
   ngOnInit(): void {
     this.getLikes();
@@ -36,5 +37,10 @@ export class HeaderComponent implements OnInit {
     setInterval(() => {
       this.likes = this.dataService.likes;
     }, 500)
+  }
+
+  logout() {
+    this.authSerive.clear();
+    this.router.navigate(['/login']);
   }
 }
