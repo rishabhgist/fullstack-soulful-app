@@ -37,8 +37,10 @@ export class SignupComponent implements OnInit {
   
   saveCustomer(data: FormGroup){
     let customerData: Customer = {
-      customerName: data.get('customerName')?.value,
-      customerPhone: data.get('customerPhone')?.value,
+      name: data.get('name')?.value,
+      age: data.get('age')?.value,
+      gender: data.get('age')?.value,
+      city: data.get('age')?.value,
       email: data.get('email')?.value,
       password: data.get('password')?.value,
     }

@@ -1,6 +1,8 @@
 export type Customer = {
-    customerName?: string,
-    customerPhone?: number,
+    name?: string,
+    age?: number,
+    gender?: string,
+    city?: string,
     email?: string,
     password?: string,
 }
