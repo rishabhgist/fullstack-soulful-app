@@ -23,7 +23,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './home/home.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
-
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     MatSnackBarModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

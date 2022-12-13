@@ -17,3 +17,9 @@ button{
     margin: 20px;
     width: 150px;
 }
+mat-radio-group{
+    width: 100%;
+}
+mat-radio-button{
+    margin: 10px 15px;
+}

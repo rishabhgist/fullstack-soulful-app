@@ -8,15 +8,24 @@
                     <mat-error class="error" *ngIf="customer.controls['customerName'].hasError('required')">Name is required</mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>Contact</mat-label>
+                    <mat-label>Age</mat-label>
                     <input type="number" required matInput formControlName="customerPhone" >
                     <mat-error class="error" *ngIf="customer.controls['customerPhone'].hasError('required')">Contact is required</mat-error>
                     <mat-error class="error" *ngIf="customer.controls['customerPhone'].hasError('pattern')">Valid contact number contains 10 digit starting with 7/8/9</mat-error>    
                 </mat-form-field>
+                <mat-radio-group aria-label="Select an option">
+                    <span>Gender: </span>
+                    <mat-radio-button value="1">Male</mat-radio-button>
+                    <mat-radio-button value="2">Female</mat-radio-button>
+                </mat-radio-group>
+                <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <input type="text" required matInput formControlName="email" required>
+                </mat-form-field>
                 <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input type="text" required matInput formControlName="email">
-                    <mat-error class="error" *ngIf="customer.controls['email'].hasError('required')">Email is required</mat-error>
+                    <input type="email" required matInput formControlName="email">
+                    <mat-error class="error" *ngIf="customer.controls['email'].hasError('required')">City is required</mat-error>
                     <mat-error class="error" *ngIf="customer.controls['email'].hasError('pattern')"> Enter a valid email address</mat-error>    
                 </mat-form-field>
                 <mat-form-field>
