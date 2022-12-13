@@ -18,11 +18,10 @@ export class SignupComponent implements OnInit {
   }
 
   customer = this.fb.group({
-    customerName: ['', Validators.required],
-    customerPhone: ['', [
-          Validators.required,
-          Validators.pattern('(9|8|7)[0-9]{9}'),
-        ]],
+    name: ['', Validators.required],
+    age: ['', [Validators.required, this.verifyAge]],
+    gender:['', Validators.required],
+    city: ['', Validators.required], 
     email: ['', Validators.compose([
           Validators.required,
           Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
@@ -49,6 +48,17 @@ export class SignupComponent implements OnInit {
       panelClass: ['mat-toolbar', 'mat-primary'],});
     })
   }
+  //Verify Age
+   verifyAge(c: AbstractControl) {
+    if (c.value != '') {
+      const age = parseInt(c.value);
+      if (age < 18) {
+        return { verifyAge: true };
+      }
+    }
+    return null;
+  }
+
 }
 
 
