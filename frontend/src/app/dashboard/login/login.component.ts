@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { tap } from 'rxjs';
 import { User } from 'src/app/model/user.model';
+import { AuthService } from 'src/app/service/auth.service';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private loginService:LoginService) { }
+  constructor(private fb: FormBuilder, private authService:AuthService) { }
 
   ngOnInit(): void {
 
@@ -31,10 +32,7 @@ export class LoginComponent implements OnInit {
       email: user.get('email')?.value,
       password: user.get('password')?.value
     }
-
-    this.loginService.get(data).pipe(tap((response: any) => {
-      
-    }))
+    this.authService.validateUser(data);
   }
   
 }
