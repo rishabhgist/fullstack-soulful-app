@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { tap } from 'rxjs';
+import { User } from 'src/app/model/user.model';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private loginService:LoginService) { }
 
   ngOnInit(): void {
 
@@ -22,5 +25,16 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required]
     
   })
+
+  login(user: FormGroup) {
+    let data: User = {
+      email: user.get('email')?.value,
+      password: user.get('password')?.value
+    }
+
+    this.loginService.get(data).pipe(tap((response: any) => {
+      
+    }))
+  }
   
 }
