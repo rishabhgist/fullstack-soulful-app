@@ -25,7 +25,6 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import { AuthGuard } from './gaurd/auth.guard';
-import { AuthInterceptor } from './gaurd/auth.interceptor';
 import { LoginService } from './service/login.service';
 
 @NgModule({
@@ -54,12 +53,7 @@ import { LoginService } from './service/login.service';
     MatRadioModule
   ],
   providers: [
-    AuthGuard, 
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    },
+    AuthGuard,
     LoginService
   ],
   bootstrap: [AppComponent]

@@ -7,6 +7,11 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
@@ -18,12 +23,8 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
   }
+  
 ];
 
 @NgModule({
