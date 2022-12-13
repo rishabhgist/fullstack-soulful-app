@@ -37,6 +37,7 @@ export class HeaderComponent implements OnInit {
     setInterval(() => {
       this.likes = this.dataService.likes;
     }, 500)
+    
   }
 
   logout() {
