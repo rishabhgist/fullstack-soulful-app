@@ -1,0 +1,39 @@
+mat-card{
+    width: 40%;
+    margin: 30px;
+}
+mat-card-title{
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d4d4d4;
+}
+table{
+    margin: 10px 0;
+    text-align: left;
+    width: 250px;
+    height: 260px;
+}
+table th{
+    width: 60%;
+}
+tr{
+    height: 50px;
+}
+table td{
+    margin-right: 10px;
+}
+button{
+    margin-top: 30px;
+}
+.profile-data{
+    display: flex;
+}
+img{
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}
+.imge{
+    margin-left: 170px;
+    align-self: center;
+}

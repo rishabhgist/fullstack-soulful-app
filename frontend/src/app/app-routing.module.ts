@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './dashboard/login/login.component';
+import { ProfileComponent } from './dashboard/profile/profile.component';
 import { SignupComponent } from './dashboard/signup/signup.component';
 import { AuthGuard } from './gaurd/auth.guard';
 import { HomeComponent } from './home/home.component';
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   }
   
 ];

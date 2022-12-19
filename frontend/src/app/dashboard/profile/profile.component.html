@@ -1,1 +1,37 @@
-<p>profile works!</p>
+<div class="container">
+    <mat-card>
+        <mat-card-title>
+           My Profile
+        </mat-card-title>
+        <mat-card-content>
+           <div class="profile-data">
+                <table>
+                <td>
+                    <tr *ngFor="let profile of profile">
+                        <th>Name: </th>
+                        <td>{{profile.name}}</td>
+                    </tr>
+                    <tr *ngFor="let profile of profile">
+                        <th>Age: </th>
+                        <td>{{profile.age}}</td>
+                    </tr>
+                    <tr *ngFor="let profile of profile">
+                        <th>Gender: </th>
+                        <td>{{profile.gender}}</td>
+                    </tr>
+                    <tr *ngFor="let profile of profile">
+                        <th>City: </th>
+                        <td>{{profile.city}}</td>
+                    </tr>
+                    <tr *ngFor="let profile of profile">
+                        <th>Email: </th>
+                        <td>{{profile.email}}</td>
+                    </tr>
+                </td>
+                </table>
+                <div class="imge"><img src="../../../assets/images/akansha.jpg" alt=""></div>
+           </div>
+            <button mat-raised-button color="warn">Change Password</button>
+        </mat-card-content>
+    </mat-card>
+</div>

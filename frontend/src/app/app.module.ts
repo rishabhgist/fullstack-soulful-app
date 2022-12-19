@@ -9,6 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './dashboard/login/login.component';
 import { SignupComponent } from './dashboard/signup/signup.component';
+import { LoginService } from './service/login.service';
+import { ProfileComponent } from './dashboard/profile/profile.component';
 
 //Core Imports
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,10 +25,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './home/home.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { AuthGuard } from './gaurd/auth.guard';
-import { LoginService } from './service/login.service';
-import { ProfileComponent } from './dashboard/profile/profile.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ProfileComponent } from './dashboard/profile/profile.component';
     MatSnackBarModule,
     MatBadgeModule,
     MatIconModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule
   ],
   providers: [
     AuthGuard,
