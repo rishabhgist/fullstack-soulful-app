@@ -39,8 +39,8 @@ export class SignupComponent implements OnInit {
     let customerData: Customer = {
       name: data.get('name')?.value,
       age: data.get('age')?.value,
-      gender: data.get('age')?.value,
-      city: data.get('age')?.value,
+      gender: data.get('gender')?.value,
+      city: data.get('city')?.value,
       email: data.get('email')?.value,
       password: data.get('password')?.value,
     }
