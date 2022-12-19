@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(private dataService:DataService, private authSerive: AuthService, private router:Router) { }
 
   ngOnInit(): void {
+    this.checklogin();
     this.getLikes();
   }
 
@@ -39,7 +40,11 @@ export class HeaderComponent implements OnInit {
     }, 500)
     
   }
-
+  checklogin() {
+    if (this.isUserLoggedIn()) {
+      this.router.navigate(['home']);
+    }
+  }
   logout() {
     this.authSerive.clear();
     this.router.navigate(['/login']);

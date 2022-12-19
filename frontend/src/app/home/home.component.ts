@@ -100,10 +100,15 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  liked(user: string | undefined) {
+  liked(user: string | undefined, id: number | undefined) {
     const main = document.getElementById( user + '-card');
     main?.style.setProperty('transform', 'translateX(1500px)');
     main?.style.setProperty('opacity', '0');
+    let likedData: number[] = [];
+    if (id) {
+      likedData.push(id);
+      console.log(id);
+    }
     setTimeout(() => {
         main?.style.setProperty('display', 'none');
         let data:Profile [] = this.profiles.filter(obj => obj.profile === user);
