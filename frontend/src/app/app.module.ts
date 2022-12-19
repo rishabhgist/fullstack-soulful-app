@@ -26,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import { AuthGuard } from './gaurd/auth.guard';
 import { LoginService } from './service/login.service';
+import { ProfileComponent } from './dashboard/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LoginService } from './service/login.service';
     LoginComponent,
     SignupComponent,
     HomeComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
