@@ -20,8 +20,8 @@
    </div>
   <div class="main text-two">People Nearby you !</div>
    <div class="profile-container">
-         <mat-card *ngFor="let profile of pNearBy" id="{{profile?.id}}-card">
-            <a href="javascript:void(0)" (mouseenter)="up(profile?.id)" (mouseleave)="down(profile?.id)" id="{{profile?.id}}">
+         <mat-card *ngFor="let profile of pNearBy" id="{{profile?.id + 'b'}}-card">
+            <a href="javascript:void(0)" (mouseenter)="up(profile?.id+'b')" (mouseleave)="down(profile?.id+'b')" id="{{profile?.id+'b'}}">
             <mat-card-title>{{profile?.name}}</mat-card-title>
             <mat-card-content>
                 <div class="profile">
