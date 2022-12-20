@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/model/customer.model';
 import { Profile } from 'src/app/model/profile.model';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,11 +10,10 @@ import { Profile } from 'src/app/model/profile.model';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
-    console.log(this.profile.values());
-
+    this.loadUser();
   }
   profile: Customer[] = [
     {
@@ -24,5 +24,8 @@ export class ProfileComponent implements OnInit {
     email: 'rr@gmail.com'}
   ]
 
+  loadUser() {
+    this.dataService.findUser();
+  }
 
 }

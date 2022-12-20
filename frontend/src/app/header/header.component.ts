@@ -5,6 +5,7 @@ import { Profile } from '../model/profile.model';
 import { AuthService } from '../service/auth.service';
 import { DataService } from '../service/data.service';
 import jwtDecode, * as JWT from 'jwt-decode';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -34,6 +35,7 @@ export class HeaderComponent implements OnInit {
   public isUserLoggedIn() {
     return this.authSerive.isLoggedIn()
   }
+  
   gettoken() {
     const token = localStorage.getItem('jwtToken');
     if (token) {
