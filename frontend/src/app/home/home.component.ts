@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../model/customer.model';
-import { Profile } from '../model/profile.model';
 import { DataService } from '../service/data.service';
+import jwtDecode, * as JWT from 'jwt-decode';
 
 @Component({
   selector: 'app-home',
@@ -28,11 +28,18 @@ export class HomeComponent implements OnInit {
   loadData() {
    this.dataService.getAllUser();
     this.dataService.getAll().forEach(value => {
-      let user: Customer = JSON.parse(JSON.stringify(value.filter(obj => obj.email === 'rk@gmail.com')[0]));
-      if (user.gender == 'male') {
-        this.profiles = this.dataService.allUser.filter(obj => obj.gender === 'female'); 
-      }else{
-        this.profiles = this.dataService.allUser.filter(obj => obj.gender === 'male'); 
+      let key = localStorage.getItem('jwtToken');
+      if (key) {
+        const decode: JWT.JwtPayload = jwtDecode(key);
+        let user: Customer = JSON.parse(JSON.stringify(value.filter(obj => obj.email === decode.sub)[0]));
+        if (user.gender == 'male') {
+          this.profiles = [];
+          this.profiles = this.dataService.allUser.filter(obj => obj.gender === 'female');
+          console.log(this.profiles);
+        } else if (user.gender == 'female') {
+          this.profiles = [];
+          this.profiles = this.dataService.allUser.filter(obj => obj.gender === 'male');
+        }
       }
     })
   }
