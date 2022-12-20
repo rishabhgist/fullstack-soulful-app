@@ -30,12 +30,36 @@ export class HomeComponent implements OnInit {
   key: number = 0;
 
   slider(type: string) {
+      let id: string | undefined = this.profiles[this.profileUp]?.id;
+      let dwId: string | undefined = this.profiles[this.profileDown-1]?.id;
     if (type === 'right' && this.profileDown <= this.profiles.length) {
-      this.profileUp++;
-      this.profileDown++;
-    } else if(type === 'left' && this.profileUp != 0) {
-      this.profileUp--;
-      this.profileDown--;
+      if (id || dwId) {
+        const file = document.getElementById(id + '-card');
+        file?.style.setProperty('transform', 'translateX(-1500px)');
+        setTimeout(() => {
+         this.profileUp++;
+         this.profileDown++;  
+        }, 500);
+        // dwId = this.profiles[this.profileDown-1]?.id;
+        // const dwfile = document.getElementById(dwId + '-card');
+        // dwfile?.style.setProperty('opacity', '0 !important');
+        // dwfile?.style.setProperty('transform', 'translateX(1500px)');
+        // setTimeout(() => {
+        //   dwfile?.style.setProperty('transform', 'translateX(0px)');
+        //   dwfile?.style.setProperty('opacity', '1');
+
+        // }, 400);
+      }
+    } else if (type === 'left' && this.profileUp != 0) {
+      if (id || dwId) {     
+        const file = document.getElementById(id + '-card');
+        const dwfile = document.getElementById(dwId + '-card');
+        dwfile?.style.setProperty('transform', 'translateX(1500px)');
+        setTimeout(() => {
+        this.profileUp--;
+        this.profileDown--;
+        }, 500);
+      }
     }
   }
 
