@@ -56,7 +56,10 @@ export class HomeComponent implements OnInit {
   ]
   profile: Profile | undefined = {};
   key: number = 0;
-
+  
+  loadData() {
+    
+  }
   next() {
     if (this.profiles.length - 1 > this.key) {
       if (this.profiles != undefined) {

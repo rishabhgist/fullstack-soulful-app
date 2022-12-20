@@ -15,6 +15,8 @@ export class DataService {
 
   data: Customer[] = [];
 
+  allUser: Customer[] = [];
+
   findUser() {
     const key = localStorage.getItem('jwtToken');
     if (key) {

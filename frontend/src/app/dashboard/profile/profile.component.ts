@@ -19,7 +19,6 @@ export class ProfileComponent implements OnInit {
 
   loadUser() {
     this.dataService.findUser();
-    this.profile = this.dataService.data;
+      this.profile = this.dataService.data;
   }
-
 }
