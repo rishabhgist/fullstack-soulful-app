@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   }
   profileUp: number = 0;
   profileDown: number = 4;
+
   profiles: Customer[] = [];
 
   pNearBy: Customer[] = [];
@@ -27,6 +28,16 @@ export class HomeComponent implements OnInit {
   profile: Customer | undefined = {};
 
   key: number = 0;
+
+  slider(type: string) {
+    if (type === 'right' && this.profileDown <= this.profiles.length) {
+      this.profileUp++;
+      this.profileDown++;
+    } else if(type === 'left' && this.profileUp != 0) {
+      this.profileUp--;
+      this.profileDown--;
+    }
+  }
 
   loadData() {
    this.dataService.getAllUser();

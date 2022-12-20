@@ -1,6 +1,4 @@
 <div class="container">
-    <button mat-icon-button class="btn-slide-left"><i class="fa-solid fa-chevron-left slide-left"></i></button>
-     <button mat-icon-button class="btn-slide-right"><i class="fa-solid fa-chevron-right slide-right"></i></button>
     <div class="main">We've found perfect match for you !</div>
    <div class="profile-container">
          <mat-card *ngFor="let profile of profiles | slice:profileUp:profileDown; let i=index;" id="{{profile?.id}}-card">
@@ -41,4 +39,6 @@
             </a>
         </mat-card>
    </div>
+    <button mat-icon-button class="btn-slide-left" (click)="slider('left')"><i class="fa-solid fa-chevron-left slide-left"></i></button>
+     <button mat-icon-button class="btn-slide-right" (click)="slider('right')"><i class="fa-solid fa-chevron-right slide-right"></i></button>
 </div>

@@ -52,7 +52,7 @@ button{
     font-size: 45px;
 }
 .btn-slide-left{
-    position: relative;
+    position: absolute;
     top: 330px;
 }
 .slide-right{
@@ -60,7 +60,7 @@ button{
     font-size: 45px;
 }
 .btn-slide-right{
-    float: right;
-    position: relative;
+    right: 30px;
+    position: absolute;
     top: 330px;
 }
