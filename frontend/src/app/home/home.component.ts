@@ -18,7 +18,8 @@ export class HomeComponent implements OnInit {
     this.profile = this.profiles.at(this.key);
     this.loadData();   
   }
-
+  profileUp: number = 0;
+  profileDown: number = 4;
   profiles: Customer[] = [];
 
   pNearBy: Customer[] = [];

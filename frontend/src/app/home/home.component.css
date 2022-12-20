@@ -47,3 +47,20 @@ button{
 .text-two{
     margin-top: 80px;
 }
+.slide-left{
+    color: #81C6C1;
+    font-size: 45px;
+}
+.btn-slide-left{
+    position: relative;
+    top: 330px;
+}
+.slide-right{
+    color: #81C6C1;
+    font-size: 45px;
+}
+.btn-slide-right{
+    float: right;
+    position: relative;
+    top: 330px;
+}

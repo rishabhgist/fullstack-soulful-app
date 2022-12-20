@@ -1,7 +1,11 @@
 <div class="container">
+    <button mat-icon-button class="btn-slide-left"><i class="fa-solid fa-chevron-left slide-left"></i></button>
+     <button mat-icon-button class="btn-slide-right"><i class="fa-solid fa-chevron-right slide-right"></i></button>
     <div class="main">We've found perfect match for you !</div>
    <div class="profile-container">
-         <mat-card *ngFor="let profile of profiles" id="{{profile?.id}}-card">
+         <mat-card *ngFor="let profile of profiles | slice:profileUp:profileDown; let i=index;" id="{{profile?.id}}-card">
+            <div class="profile-up">
+            </div>
             <a href="javascript:void(0)" (mouseenter)="up(profile?.id)" (mouseleave)="down(profile?.id)" id="{{profile?.id}}">
             <mat-card-title>{{profile?.name}}</mat-card-title>
             <mat-card-content>
