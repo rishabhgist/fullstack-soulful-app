@@ -1,18 +1,18 @@
 <div class="container">
     <div class="main">We've found perfect match for you !</div>
    <div class="profile-container">
-         <mat-card *ngFor="let profile of profiles" id="{{profile?.profile}}-card">
-            <a href="javascript:void(0)" (mouseenter)="up(profile?.profile)" (mouseleave)="down(profile?.profile)" id="{{profile?.profile}}">
+         <mat-card *ngFor="let profile of profiles" id="{{profile?.id}}-card">
+            <a href="javascript:void(0)" (mouseenter)="up(profile?.id)" (mouseleave)="down(profile?.id)" id="{{profile?.id}}">
             <mat-card-title>{{profile?.name}}</mat-card-title>
             <mat-card-content>
                 <div class="profile">
                     <div class="profile-location"><i class="fa-solid fa-location-dot"></i>&nbsp;{{profile?.city}}</div>
                     <div class="profile-age"><i class="fa-solid fa-cake-candles"></i>&nbsp;{{profile?.age}}</div>
-                    <div class="profile-image"><img src="../../assets/images/{{profile?.profile}}.jpg" alt="Sneha"></div>
+                    <div class="profile-image"><img src="../../assets/images/akansha.jpg" alt="Sneha"></div>
                 </div >
                 <div class="event">
-                    <button mat-raised-button color="warn" (click)="remove(profile?.profile)">Not Intrested</button>
-                    <button mat-raised-button color="success" (click)="liked(profile?.profile, profile?.id)">Intrested</button>
+                    <button mat-raised-button color="warn" (click)="remove(profile?.id)">Not Intrested</button>
+                    <button mat-raised-button color="success" (click)="liked(profile?.id, 5)">Intrested</button>
                 </div>
             </mat-card-content>
             </a>

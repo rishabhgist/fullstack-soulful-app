@@ -5,6 +5,7 @@ import { Profile } from '../model/profile.model';
 import { AuthService } from '../service/auth.service';
 import { DataService } from '../service/data.service';
 import jwtDecode, * as JWT from 'jwt-decode';
+import { Customer } from '../model/customer.model';
 
 @Component({
   selector: 'app-header',
@@ -29,7 +30,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  likes: Profile[] = []
+  likes: Customer[] = []
 
    
   public isUserLoggedIn() {

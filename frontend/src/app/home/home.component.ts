@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from '../model/customer.model';
 import { Profile } from '../model/profile.model';
 import { DataService } from '../service/data.service';
 
@@ -9,57 +10,34 @@ import { DataService } from '../service/data.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private dataService:DataService) { }
+  constructor(private dataService: DataService) { }
 
   
 
   ngOnInit(): void {
     this.profile = this.profiles.at(this.key);
+    this.loadData();   
   }
 
-  profiles: Profile[] = [
-    {
-      id: 1,
-      name: "Sneha Shinde",
-      city: "Pune, Maharashtra",
-      age: "23",
-      profile: "sneha"
-    },
-    {
-      id: 2,
-      name: "Aditi Chaurisia",
-      city: "Mumbai, Maharashtra",
-      age: "24",
-      profile: "dimple"
-    },
-    {
-      id: 3,
-      name: "Akansha Yadav",
-      city: "Delhi",
-      age: "20",
-      profile: "akansha"
-    },
-    {
-      id: 4,
-      name: "Deepika Bhardwaj",
-      city: "Dehradun, Uttrakhand",
-      age: "25",
-      profile: "deepika"
-    },
-    {
-      id: 5,
-      name: "Meera Bai",
-      city: "Bengluru, Karanataka",
-      age: "23",
-      profile: "meera"
-    }
-  ]
-  profile: Profile | undefined = {};
+  profiles: Customer[] = [];
+
+  profile: Customer | undefined = {};
+
   key: number = 0;
-  
+
   loadData() {
-    
+   this.dataService.getAllUser();
+    this.dataService.getAll().forEach(value => {
+      let user: Customer = JSON.parse(JSON.stringify(value.filter(obj => obj.email === 'rk@gmail.com')[0]));
+      if (user.gender == 'male') {
+        this.profiles = this.dataService.allUser.filter(obj => obj.gender === 'female'); 
+      }else{
+        this.profiles = this.dataService.allUser.filter(obj => obj.gender === 'male'); 
+      }
+    })
   }
+
+
   next() {
     if (this.profiles.length - 1 > this.key) {
       if (this.profiles != undefined) {
@@ -78,7 +56,6 @@ export class HomeComponent implements OnInit {
       main?.style.setProperty('z-index', '1');
       card?.style.setProperty('opacity', '1');
       main?.style.setProperty('transform', 'scale(1.1)');
-      
     }
   }
   down(name: string | undefined) {
@@ -97,7 +74,7 @@ export class HomeComponent implements OnInit {
       main?.style.setProperty('opacity', '0');
       setTimeout(() => {
         main?.style.setProperty('display', 'none');
-        this.profiles = this.profiles.filter(obj => obj.profile !== name);
+        this.profiles = this.profiles.filter(obj => obj.id !== name);
         console.log(this.profiles);
       }, 600);
     }
@@ -114,7 +91,7 @@ export class HomeComponent implements OnInit {
     }
     setTimeout(() => {
         main?.style.setProperty('display', 'none');
-        let data:Profile [] = this.profiles.filter(obj => obj.profile === user);
+        let data:Customer [] = this.profiles.filter(obj => obj.id === user);
         this.dataService.likes.push(data[0]);
       }, 600);
    

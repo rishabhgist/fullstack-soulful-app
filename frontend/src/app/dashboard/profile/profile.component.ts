@@ -21,4 +21,5 @@ export class ProfileComponent implements OnInit {
     this.dataService.findUser();
       this.profile = this.dataService.data;
   }
+
 }
