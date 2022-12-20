@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
 
   profiles: Customer[] = [];
 
+  pNearBy: Customer[] = [];
+
   profile: Customer | undefined = {};
 
   key: number = 0;
@@ -40,6 +42,7 @@ export class HomeComponent implements OnInit {
           this.profiles = [];
           this.profiles = this.dataService.allUser.filter(obj => obj.gender === 'male');
         }
+        this.pNearBy = this.profiles.filter(ob => ob.city === user.city);
       }
     })
   }
