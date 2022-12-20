@@ -126,21 +126,22 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  liked(user: string | undefined, id: number | undefined) {
-    const main = document.getElementById( user + '-card');
-    main?.style.setProperty('transform', 'translateX(1500px)');
-    main?.style.setProperty('opacity', '0');
-    let likedData: number[] = [];
-    if (id) {
-      likedData.push(id);
-      console.log(id);
-    }
-    setTimeout(() => {
-        main?.style.setProperty('display', 'none');
-        let data:Customer [] = this.profiles.filter(obj => obj.id === user);
-        this.dataService.likes.push(data[0]);
-      }, 600);
-   
+  liked(userA: string | undefined) {
+    if (userA) {  
+      this.dataService.getFormNeo().subscribe((value) => {
+        let userOne = value.filter(ob => ob.email === userA);
+        let key = localStorage.getItem('jwtToken');
+        if (key) {
+          const decode: JWT.JwtPayload = jwtDecode(key);
+          let userTwo = value.filter(ob => ob.email === decode.sub);
+          let userOneId: number | undefined = Number(userOne[0].id);
+          let userTwoId: number | undefined = Number(userTwo[0].id)          
+          if (userOneId >=0 && userTwoId) {
+              console.log('['+userOneId.toString() +''+userTwoId+']');      
+          }
+        }
+      })
+     }
   }
 }
 

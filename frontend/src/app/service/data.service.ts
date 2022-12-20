@@ -21,7 +21,11 @@ export class DataService {
   getAll():Observable<Customer[]> {
     return this.http.get<Array<Customer>>('http://localhost:8082/api/v2/user');
   }
-
+  
+  getFormNeo():Observable<Customer[]> {
+    return this.http.get<Array<Customer>>('http://localhost:8086/api/v3/find');
+  }
+  
   findUser() {
     const key = localStorage.getItem('jwtToken');
     if (key) {
