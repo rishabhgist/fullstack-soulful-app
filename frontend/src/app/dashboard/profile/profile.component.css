@@ -37,3 +37,6 @@ img{
     margin-left: 170px;
     align-self: center;
 }
+.gender{
+    text-transform: capitalize;
+}

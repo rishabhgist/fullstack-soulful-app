@@ -15,17 +15,11 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.loadUser();
   }
-  profile: Customer[] = [
-    {
-    name: "Rishabh Gupta",
-    age: 23,
-    gender: "Male",
-    city: "New York", 
-    email: 'rr@gmail.com'}
-  ]
+  profile: Customer[] = [];
 
   loadUser() {
     this.dataService.findUser();
+    this.profile = this.dataService.data;
   }
 
 }
