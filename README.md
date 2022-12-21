@@ -1,10 +1,24 @@
-# Frontend
+# Soulful
+## Summary 
+This is a tinder like application that allow user to find there soulmates and match with them. This application is a full-stack application created using Angular and Spring Boot.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+## Sources
+- Frontend - `angular`, `typescript`, `html`, `css`
+- Backend - `spring boot`, `mongodb`, `neo4j`, `mysql`
+- Mircroservice - `docker`
+- API - `restful api`
 
-## Development server
+
+# Preview
+
+## Login
+![]()
+
+## Development server frontend 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Development server backend 
 
 ## Code scaffolding
 
