@@ -1,0 +1,26 @@
+server:
+  port: 8082
+  error:
+    include-message: always
+spring:
+  data:
+    mongodb:
+      uri: mongodb://mongoService:27017/users
+  jpa:
+    hibernate:
+      ddl_auto:
+        application: create
+  application:
+    name: soulmate-service
+  rabbitmq:
+    host: rabbitmq
+    queue:
+      name: user_data_queue
+    exchange:
+      key: user_data_exchange
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka
+    fetchRegistry: true
+    registerWithEureka: true

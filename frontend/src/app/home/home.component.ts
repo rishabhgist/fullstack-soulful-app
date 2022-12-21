@@ -148,7 +148,8 @@ export class HomeComponent implements OnInit {
                });
             const main = document.getElementById( id + '-card');
             main?.style.setProperty('transform', 'translateX(1500px)');
-            main?.style.setProperty('opacity', '0');
+              main?.style.setProperty('opacity', '0');
+              this.dataService.likes.push(userOne[0]);
             setTimeout(() => {
               main?.style.setProperty('display', 'none');
               this.profiles = this.profiles.filter(obj => obj.email !== userA);

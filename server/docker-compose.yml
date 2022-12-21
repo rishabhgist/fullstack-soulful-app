@@ -1,0 +1,103 @@
+version: "3.9"
+services:
+  mysqlService:
+    image: mysql:latest
+    container_name: mysqlService
+    networks:
+      - mysql-net
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: customer
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  authentication-service:
+      image: authentication_image
+      container_name: authentication-service
+      build: UserAuthenticationService
+      restart: always
+      networks:
+        - mysql-net
+      ports:
+        - "8085:8085"
+      depends_on:
+        - mysqlService
+        - api-gateway
+        - eureka-server
+  mongoService:
+    image: mongo:latest
+    container_name: mongoService
+    networks:
+      - mysql-net
+    ports:
+      - "27017:27017"
+  soulmate-service:
+    image: soulmate
+    container_name: soulmate-service
+    build: SoulmateService
+    restart: always
+    networks:
+      - mysql-net
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongoService
+      - api-gateway
+      - eureka-server
+  api-gateway:
+    image: api_service
+    container_name: api-gateway
+    build: ApiService
+    networks:
+      - mysql-net
+    ports:
+      - "9000:9000"
+  mapping-service:
+    image: mapping_service
+    container_name: mapping-service
+    build: SoulmateMapping
+    networks:
+      - mysql-net
+    ports:
+      - "8086:8086"
+    depends_on:
+      - neo4jService
+      - api-gateway
+      - eureka-server
+  neo4jService:
+    image: neo4j:latest
+    container_name: neo4jService
+    restart: always
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/rishabh123
+      NEO4J_dbms_default__database: users
+    networks:
+      - mysql-net
+  eureka-server:
+    image: eureka_server
+    container_name: eureka-server
+    build: EurekaServer
+    networks:
+      - mysql-net
+    ports:
+      - "8761:8761"
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    networks:
+      - mysql-net
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+networks:
+  mysql-net:
+    driver: bridge
+
