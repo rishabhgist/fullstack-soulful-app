@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from '../model/customer.model';
 import { DataService } from '../service/data.service';
 import jwtDecode, * as JWT from 'jwt-decode';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import jwtDecode, * as JWT from 'jwt-decode';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private _snackBar:MatSnackBar) { }
 
   
 
@@ -73,7 +74,7 @@ export class HomeComponent implements OnInit {
         if (user.gender == 'male') {
           this.profiles = [];
           this.profiles = this.dataService.allUser.filter(obj => obj.gender === 'female');
-          console.log(this.profiles);
+          // console.log(this.profiles);
         } else if (user.gender == 'female') {
           this.profiles = [];
           this.profiles = this.dataService.allUser.filter(obj => obj.gender === 'male');
@@ -121,12 +122,12 @@ export class HomeComponent implements OnInit {
       setTimeout(() => {
         main?.style.setProperty('display', 'none');
         this.profiles = this.profiles.filter(obj => obj.id !== name);
-        console.log(this.profiles);
+        // console.log(this.profiles);
       }, 600);
     }
   }
 
-  liked(userA: string | undefined) {
+  liked(userA: string | undefined, id: String | undefined) {
     if (userA) {  
       this.dataService.getFormNeo().subscribe((value) => {
         let userOne = value.filter(ob => ob.email === userA);
@@ -137,7 +138,25 @@ export class HomeComponent implements OnInit {
           let userOneId: number | undefined = Number(userOne[0].id);
           let userTwoId: number | undefined = Number(userTwo[0].id)          
           if (userOneId >=0 && userTwoId) {
-              console.log('['+userOneId.toString() +''+userTwoId+']');      
+            let liked: number[] = [];
+            liked.push(userTwoId);
+            liked.push(userOneId);
+            this.dataService.likeProfile(liked).subscribe((response: any) => {
+               this._snackBar.open('Profile Liked!!', 'success', {
+                duration: 5000,
+                panelClass: ['mat-primary', 'mat-warn'],
+               });
+            const main = document.getElementById( id + '-card');
+            main?.style.setProperty('transform', 'translateX(1500px)');
+            main?.style.setProperty('opacity', '0');
+            setTimeout(() => {
+              main?.style.setProperty('display', 'none');
+              this.profiles = this.profiles.filter(obj => obj.email !== userA);
+            }, 600); 
+            }, (error) => {
+              console.log(error);
+              console.log("high");
+            })
           }
         }
       })

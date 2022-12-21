@@ -14,7 +14,7 @@
                 </div >
                 <div class="event">
                     <button mat-raised-button color="warn" (click)="remove(profile?.id)">Not Intrested</button>
-                    <button mat-raised-button color="success" (click)="liked(profile?.email)">Intrested</button>
+                    <button mat-raised-button color="success" (click)="liked(profile?.email, profile?.id)">Intrested</button>
                 </div>
             </mat-card-content>
             </a>
@@ -33,7 +33,7 @@
                 </div >
                 <div class="event">
                     <button mat-raised-button color="warn" (click)="remove(profile?.id)">Not Intrested</button>
-                    <button mat-raised-button color="success" (click)="liked(profile?.email)">Intrested</button>
+                    <button mat-raised-button color="success" (click)="liked(profile?.email, profile?.id)">Intrested</button>
                 </div>
             </mat-card-content>
             </a>

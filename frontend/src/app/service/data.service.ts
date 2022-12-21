@@ -25,6 +25,10 @@ export class DataService {
   getFormNeo():Observable<Customer[]> {
     return this.http.get<Array<Customer>>('http://localhost:8086/api/v3/find');
   }
+
+  likeProfile(body: Array<Number>) {
+    return this.http.post('http://localhost:8086/api/v3/like', body, {responseType: 'text'});
+  }
   
   findUser() {
     const key = localStorage.getItem('jwtToken');
